@@ -6,17 +6,16 @@ print('-='*7)
 
 numero = str(randint(100000000, 999999999))
 cpf = numero
-soma_digito1 = 0
+soma_digito1 = 0 
 soma_digito2 = 0
-novo_cpf = []
+cpf_gerado = [] 
 cpf_lista = []
-new = 0
 #Colocando o CPF numa lista para facilitar o iteiramento
 for a in range(len(cpf)):
     cpf_lista += cpf[a]
 #definindo o primeiro digito depois do '-'
 for n, p in enumerate(range(10, 1, -1)):
-    novo_cpf += cpf[n]
+    cpf_gerado += cpf[n]
     multi = int(cpf[n]) * p
     soma_digito1 += multi
 
@@ -26,10 +25,10 @@ if verificador_digito1 > 9:
     digito1 = 0
 else:
     digito1 = verificador_digito1
-novo_cpf += str(digito1)
+cpf_gerado += str(digito1)
 #Definindo o segundo dígito
 for n2, p2 in enumerate(range(11, 1, -1)):
-    multi = int(novo_cpf[n2]) * p2
+    multi = int(cpf_gerado[n2]) * p2
     soma_digito2 += multi
 
 verificador_digito2 = 11 - (soma_digito2 % 11)
@@ -39,8 +38,8 @@ if verificador_digito2 > 9:
 else:
     digito2 = verificador_digito2
 
-novo_cpf += str(digito2)
+cpf_gerado += str(digito2)
 #Mostrar o CPF gerado
-for z in range(len(novo_cpf)):
-    print(novo_cpf[z], end='')
+for z in range(len(cpf_gerado)):
+    print(cpf_gerado[z], end='')
 
